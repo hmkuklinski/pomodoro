@@ -1,0 +1,205 @@
+html {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    min-height: 100vh;
+    color: #d8e9ef; /*text color*/
+    background-image: url('https://live.staticflickr.com/3771/11032788945_906c7d5bf2_b.jpg');
+    background-position: center center; /* horizontal vertical*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 { /* pomodoro*/
+    margin: 0 auto 10px auto;
+    color: #d8e9ef;
+}  
+p {
+    margin: 0;
+}
+
+.app-message { /* press start to begin */
+    font-size:32px;
+    margin: 90px auto 20px auto;
+}
+
+#app-container, .app-tasks, .full-list{ 
+    width: 50%;
+    height: 480px;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(32,32,33,0.2);
+}
+
+
+.app-tasks{
+    height: 280px;
+}
+.full-list{
+    background-color:transparent;
+}
+
+/* ------ the actual time display ------*/
+.app-counter-box {
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: 250%;
+    position: relative;
+    top: 20px;
+    color: #d8e9ef;
+    height: 40px;
+}
+
+/* ---------- BUTTONS ------------*/
+button {
+    position: relative;
+    top: 70px;
+    font-size: 90%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px;
+    border-radius: 10px;
+    border:none;
+    background-color: rgba(0,0,255,0.35);
+    color: whitesmoke;
+}
+  
+button:hover {
+    color: #000000;
+    transition: 0.3s ease-in;
+}
+
+.btn-pomodoro{
+    background-color: #e5a0b3;
+}
+.btn-short-break{
+    background-color: #c49dce;
+}
+.btn-long-break{
+    background-color:#ff9469;
+}
+
+.btn-pause{
+    display:none;  
+}
+.btn-restart{
+    display:none;
+}
+
+.options{
+    display:inline-flex;
+}
+
+.btn-pomodoro, .btn-short-break, .btn-long-break{
+    margin: 10px;
+}
+
+/* ------ FOR SMALLER SCREENS ------*/
+@media (max-width: 850px){
+    #app-container, .app-tasks{
+        width: 80%;
+    }
+    .full-list{
+        width: 100%;
+    }
+    .task-item-container{
+        display:flex;
+        flex-direction: column;
+
+    }
+    .btn-remove{
+        width: 100%;
+        height: 40px;
+        font-size:14px;
+    }
+    ul{
+        width:100%;
+        padding:0;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+    }
+    li {
+        width:100%;
+        margin: 10px 0;
+        border-radius: 10px;
+        box-sizing:border-box;
+    }
+    .task-text{
+        font-size:20px;
+    }
+    
+    
+}
+
+/* ------ FOR ADDING TO THE TO DO LIST ------*/
+.task-input{
+    padding: 10px;
+}
+
+#task-input-box{ /* where user enters text */
+    width:90%;
+    height: 40px;
+    font-size: 25px;
+    background-color:rgb(196, 195, 195);
+    color:black;
+}
+
+.btn-add{ /* for adding task*/
+    width: 50%;
+    height:50px;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color:#ec5454;
+}
+
+
+
+/* ------ FOR ADDING TASKS ------*/
+
+.task-item-container{ /* holds the newly added tasks!*/
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+
+}
+
+.btn-remove{ /* can remove from screen when completed*/
+    position:relative;
+    top:0;
+    left:10px;
+    width: 120px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #ec5454;
+    border:none;
+    color:#fff;
+    font-size:12px;
+    cursor:pointer;
+    margin-bottom: 10px;
+}
+
+ul{
+    list-style-type:none;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}
+
+li {
+    width:calc(33.333% - 25px);
+    margin: 10px;
+    background-color: rgba(216, 233, 239, 0.65);
+    border-radius: 10px;
+    box-sizing: border-box;
+    
+}
+.task-text{ /* what user typed into the task bar*/
+    font-size: 22px;
+    box-sizing: border-box;
+    color:black;
+    padding:10px;
+    width:100%;
+}
+
