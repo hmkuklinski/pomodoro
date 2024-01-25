@@ -167,6 +167,7 @@ function addTask(){
     <div class="task-item-container">
       <div class="task-text">${taskInput.value}</div>
       <div><button class="btn-remove" onclick="removeTask(this)">Done</button></div>
+      <div><button class="btn-done" onclick="completedTask(this)">Completed </button></div>
     
     </div>
     `; //adds a task item with entry description and done button (will eliminate this element from existing list if finished)
