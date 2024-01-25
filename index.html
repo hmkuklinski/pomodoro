@@ -12,32 +12,66 @@
   </head>
   <!-- START OF APP CONTAINER -->
   <body>
+    
     <div id="settings-container">
       <div class="setting-icon">
         <ion-icon name="settings-outline"></ion-icon>
       </div>
       <div class="settings-title">
-        <h2>Settings</h2>
+        <h2><ion-icon name="image-outline"></ion-icon> Change Background</h2>
       </div>
       <div class="change-bg">
-        <button class="btn-bg" onclick="changeBg(imagesBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> Sunset City</button>
+        <button class="btn-bg" onclick="changeBg(imagesBg)"title="Change Background Photo">Sunset City</button>
       </div>
       <div class="change-bg">
-        <button class="btn-night-city" onclick="changeBg(cityNightBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> City Lights</button>
+        <button class="btn-night-city" onclick="changeBg(cityNightBg)"title="Change Background Photo">City Lights</button>
       </div>   
       <div class="change-bg">
-        <button class="btn-city" onclick="changeBg(cityBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> City Aesthetics</button>
+        <button class="btn-city" onclick="changeBg(cityBg)"title="Change Background Photo">City Aesthetics</button>
       </div>
       <div class="change-bg">
-        <button class="btn-flowers" onclick="changeBg(flowersBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> Flowers</button>
+        <button class="btn-flowers" onclick="changeBg(flowersBg)"title="Change Background Photo">Flowers</button>
       </div>
       <div class="change-bg">
-        <button class="btn-clouds" onclick="changeBg(skyBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> Clouds</button>
+        <button class="btn-clouds" onclick="changeBg(skyBg)"title="Change Background Photo">Clouds</button>
       </div>
       <div class="change-bg">
-        <button class="btn-space" onclick="changeBg(spaceBg)"title="Change Background Photo"><ion-icon name="image-outline"></ion-icon> Space</button>
+        <button class="btn-space" onclick="changeBg(spaceBg)"title="Change Background Photo">Space</button>
       </div>
     </div>
+
+
+    <div class="spotify">
+      <div class="music-icon">
+        <ion-icon name="musical-notes-outline"></ion-icon>
+      </div>
+      <div class="music-title">
+        <h2><ion-icon name="play-outline"></ion-icon> Current Playlist</h2>
+      </div>
+      <div class="music">
+        <div class="music-select">
+          <button class="btn-piano" onclick="displayPiano()">Piano</button>
+        </div>
+        <div class="music-select">
+          <button class="btn-cs" onclick="displayCs()">Coffee Shop</button>
+        </div>
+        <div class="music-select">
+          <button class="btn-krnb" onclick="displayKRnb()">Korean RNB</button>
+        </div>
+      </div>
+      <div class="current-playlist">
+        <div class="piano">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2vgeHOfgtMww1vQA69TUqA?utm_source=generator&theme=0" width="97%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="coffee-shop">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/293KsHoMB9u9CydEl6ECkV?utm_source=generator" width="97%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="korean-rnb">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2CMfgrPbiFabkDtYLy69Me?utm_source=generator" width="97%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
 
     <div id="app-container">
       <h1>Pomodoro</h1>

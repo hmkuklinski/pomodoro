@@ -96,10 +96,7 @@ button:hover {
 }
 
 /* --- for the settings box ----- */
-.btn-bg, .btn-flowers, 
-.btn-clouds, .btn-anime, .btn-night-city, .btn-city,
-.btn-space
-{
+.change-bg button{
     background-color: rgb(101, 168, 199);
     position: relative;
     top: 0px;
@@ -112,10 +109,17 @@ button:hover {
     cursor:pointer;
     width: 200px;
 }
-
-.btn-bg:hover, .btn-flowers:hover, .btn-clouds:hover,
- .btn-anime:hover, .btn-night-city:hover, .btn-city:hover,
- .btn-space:hover {
+.music-select button{
+    background-color: rgb(101, 168, 199);
+    font-size: 90%;
+    text-transform:none;
+    color: white;
+    padding: 5px 6px;
+    margin: 5px;
+    cursor:pointer;
+    width: 200px;
+}
+.change-bg button:hover, .music-select button:hover{
     transition: 0.35s all ease-in;
     color:black;
     border: 1px solid black;
@@ -138,15 +142,43 @@ button:hover {
     transition: 0.35s all ease-in;
     cursor:pointer;
 }
-#settings-container:hover{
+
+#settings-container:hover, .spotify:hover{
     height: auto;
-    width: auto;
-    padding:0;
+    width: 25%;
+    padding:10px;
     transition: 0.3s all ease-out;
 }
+.spotify{
+    border-radius: 12px;
+    background-color: transparent;
+    position:fixed;
+    top: 90px;
+    left:10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    height: 50px;
+    width: 50px;
+    z-index:1000;
+    padding: 0;
+    transition: 0.35s all ease-in;
+    cursor:pointer;
+}
+ 
+.spotify:hover .music,
+.spotify:hover .music-select,
+.spotify:hover .music-title,
+.spotify:hover .current-playlist{
+    display:block;
+}
+#settings-container:hover .change-bg {
+    display:block;
+}
 
-#settings-container:hover .change-bg, 
-#settings-container:hover .completed {
+#settings-container:hover .music-select button{
     display:block;
 }
 
@@ -158,15 +190,38 @@ button:hover {
     display:none;
 }
 
-.change-bg, .completed{
+.change-bg{
     display:none;
     font-size: 16px;
 }
-.settings-title{
+.settings-title, .music-title{
     display:none;
     text-align:center;
-    font-size: 18px;
+    font-size: 14px;
 }
+
+/* ------ display for the music buttons/imbedded playlist ------*/
+.music-select{
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+.piano{
+    display:none;
+}
+.coffee-shop{
+    display:none;
+}
+.korean-rnb{
+    display:none;
+}
+
+.current-playlist{
+    display:none;
+    margin-top: 80px;
+}
+
+
 
 /* ------ FOR SMALLER SCREENS ------*/
 @media (max-width: 850px){

@@ -14,6 +14,22 @@ const removeBtn= document.querySelector('.btn-remove');
 
 //change background button:
 const bgBtn= document.querySelector('.btn-bg');
+const nightCityBtn= document.querySelector('.btn-night-city');
+const cityBtn= document.querySelector('.btn-city');
+const flowerBtn= document.querySelector('.btn-flowers');
+const cloudBtn= document.querySelector('.btn-clouds');
+const spaceBtn = document.querySelector('.btn-space');
+
+//music buttons:
+const pianoBtn= document.querySelector('.btn-piano');
+const krnbBtn= document.querySelector('.btn-krnb');
+const coffeeShopBtn= document.querySelector('.btn-cs');
+
+//spotify embedded:
+const spotifyPiano = document.querySelector('.piano');
+const spotifyKrnb= document.querySelector('.korean-rnb');
+const spotifyCoffeeShop= document.querySelector('.coffee-shop');
+
 
 //timer type buttons:
 const pomodoroBtn= document.querySelector('.btn-pomodoro'); //25 min
@@ -23,6 +39,7 @@ const longBtn= document.querySelector('.btn-long-break'); //15 min
 //time types:
 const minutes= document.querySelector('.minutes'); 
 const seconds = document.querySelector('.seconds');
+
 
 //other variables:
 let myInterval;
@@ -217,7 +234,6 @@ const imagesBg= [
 ]; 
 
 //for night city: korea, chicago, hong kong, seattle
-const nightCityBtn= document.querySelector('.btn-night-city');
 nightCityBtn.addEventListener('click', function(){
   changeBg(cityNightBg);
 });
@@ -230,7 +246,6 @@ const cityNightBg=[
 ];
 
 //for city aesthetics: nyc, korea- pink flowers, korea-flowers2, pgh, venice, nyc2, tokyo
-const cityBtn= document.querySelector('.btn-city');
 cityBtn.addEventListener('click', function(){
   changeBg(cityBg);
 });
@@ -246,7 +261,6 @@ const cityBg=[
 ];
 
 //for flower and aesthetic background pictures:
-const flowerBtn= document.querySelector('.btn-flowers');
 flowerBtn.addEventListener('click', function(){
   changeBg(flowersBg);
 });
@@ -261,7 +275,6 @@ const flowersBg= [
 ];
 
 //for sky and cloud background photos:
-const cloudBtn= document.querySelector('.btn-clouds');
 cloudBtn.addEventListener('click', function(){
   changeBg(skyBg);
 });
@@ -274,7 +287,6 @@ const skyBg=[
 
 
 //for space stuff: 
-const spaceBtn = document.querySelector('.btn-space');
 spaceBtn.addEventListener('click', function(){
   changeBg(spaceBg);
 });
@@ -284,3 +296,26 @@ const spaceBg=[
   'https://wallpapers-clan.com/wp-content/uploads/2023/10/space-porthole-view-wallpaper-scaled.jpg',
   'https://getwallpapers.com/wallpaper/full/6/0/a/399978.jpg'
 ];
+
+
+//for the music playlists!!!
+pianoBtn.addEventListener('click', displayPiano);
+function displayPiano(){
+  spotifyPiano.style.display="block";
+  spotifyKrnb.style.display="none";
+  spotifyCoffeeShop.style.display="none";
+}
+
+coffeeShopBtn.addEventListener('click', displayCs);
+function displayCs(){
+  spotifyPiano.style.display="none";
+  spotifyKrnb.style.display="none";
+  spotifyCoffeeShop.style.display="block";
+}
+krnbBtn.addEventListener('click', displayKRnb);
+function displayKRnb(){
+  spotifyPiano.style.display="none";
+  spotifyKrnb.style.display="block";
+  spotifyCoffeeShop.style.display="none";
+}
+
