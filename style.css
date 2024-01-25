@@ -8,6 +8,7 @@ html {
     background-position: center center; /* horizontal vertical*/
     background-size: cover;
     background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
 }
 h1 { /* pomodoro*/
     margin: 0 auto 10px auto;
@@ -95,7 +96,10 @@ button:hover {
 }
 
 /* --- for the settings box ----- */
-.btn-bg, .btn-completed{
+.btn-bg, .btn-completed, .btn-flowers, 
+.btn-clouds, .btn-anime, .btn-night-city, .btn-city,
+.btn-space
+{
     background-color: rgb(101, 168, 199);
     position: relative;
     top: 0px;
@@ -106,10 +110,12 @@ button:hover {
     padding: 5px 6px;
     margin: 5px;
     cursor:pointer;
-    width: 240px;
+    width: 200px;
 }
 
-.btn-bg:hover{
+.btn-bg:hover, .btn-flowers:hover, .btn-clouds:hover,
+ .btn-anime:hover, .btn-night-city:hover, .btn-city:hover,
+ .btn-space:hover {
     transition: 0.35s all ease-in;
     color:black;
     border: 1px solid black;
@@ -130,10 +136,11 @@ button:hover {
     z-index:1000;
     padding: 0;
     transition: 0.35s all ease-in;
+    cursor:pointer;
 }
 #settings-container:hover{
-    height: 200px;
-    width: 270px;
+    height: auto;
+    width: auto;
     padding:0;
     transition: 0.3s all ease-out;
 }
@@ -230,7 +237,7 @@ button:hover {
     flex-wrap:wrap;
     justify-content:space-evenly;
     text-align: center;
-    padding: 10px;
+    padding: 7px;
 }
 
 .btn-remove{ /* can remove from screen when completed*/
