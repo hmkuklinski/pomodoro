@@ -127,7 +127,7 @@ button:hover {
 
 #settings-container{
     border-radius: 12px;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.24);
     position:fixed;
     top: 10px;
     left: 10px;
@@ -145,13 +145,14 @@ button:hover {
 
 #settings-container:hover, .spotify:hover{
     height: auto;
+    background-color:transparent;
     width: 25%;
     padding:10px;
     transition: 0.3s all ease-out;
 }
 .spotify{
     border-radius: 12px;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.24);
     position:fixed;
     top: 90px;
     left:10px;
@@ -198,6 +199,7 @@ button:hover {
     display:none;
     text-align:center;
     font-size: 14px;
+    color:#e5a0b3;
 }
 
 /* ------ display for the music buttons/imbedded playlist ------*/
