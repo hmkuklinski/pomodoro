@@ -170,7 +170,6 @@ function addTask(){
     <div class="task-item-container">
       <div class="task-text">${taskInput.value}</div>
       <div><button class="btn-remove" onclick="removeTask(this)">Done</button></div>
-      <div><button class="btn-done" onclick="completedTask(this)">Completed </button></div>
     
     </div>
     `; //adds a task item with entry description and done button (will eliminate this element from existing list if finished)
@@ -273,22 +272,10 @@ const skyBg=[
   'https://i.pinimg.com/564x/48/14/14/481414bd8282d08956de7c92f1aa9cca.jpg',
 ];
 
-//for anime landscapes:
-const animeBtn = document.querySelector('.btn-anime');
-animeBtn.addEventListener('click', function(){
-  changeBg(animeBg);
-});
-
-const animeBg=[
-  'https://wallpapers-clan.com/wp-content/uploads/2023/04/summer-anime-aesthetic-wallpaper.jpg',
-  'https://w0.peakpx.com/wallpaper/62/551/HD-wallpaper-aesthetic-anime-town-0w0-calming-street-sunset-thanks.jpg',
-  'https://papers.co/wallpaper/papers.co-bl92-art-anime-japan-street-cute-41-iphone-wallpaper.jpg',
-  'https://funmauj.b-cdn.net/test/615688.jpg'
-];
 
 //for space stuff: 
 const spaceBtn = document.querySelector('.btn-space');
-animeBtn.addEventListener('click', function(){
+spaceBtn.addEventListener('click', function(){
   changeBg(spaceBg);
 });
 const spaceBg=[
