@@ -29,3 +29,9 @@ When you are done with the task, you can click the Done button to remove it from
 # ToDo
 
 I would like to have a user login option to store tasks and to create a section of past completed tasks. 
+
+
+# Updates:
+01/25/24 - Added a Change Background Image and Preselect Music Playlist Options in Sidebar
+
+02/06/24 - Added a Random Quotes Generator in Sidebar (uses API)
