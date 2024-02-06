@@ -319,3 +319,21 @@ function displayKRnb(){
   spotifyCoffeeShop.style.display="none";
 }
 
+// for the random quote generator:
+let quoteText = document.querySelector('.quote-body');
+let author = document.querySelector('.author');
+let generateQuoteBtn = document.querySelector('.btn-quote');
+
+const url= "https://api.quotable.io/random";
+
+let fetchQuote = () =>{
+  fetch(url)
+    .then(data => data.json())
+    .then((item)=>{
+      quoteText.innerHTML = "\"" + item.content + "\" ";
+      author.innerHTML = "- " + item.author;
+  });
+};
+
+window.addEventListener("load", fetchQuote);
+generateQuoteBtn.addEventListener("click", fetchQuote);

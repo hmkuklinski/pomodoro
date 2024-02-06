@@ -95,8 +95,8 @@ button:hover {
     margin: 10px;
 }
 
-/* --- for the settings box ----- */
-.change-bg button{
+/* --- for the settings box ----- */ 
+.change-bg button, .music-select button,.btn-quote{ 
     background-color: rgb(101, 168, 199);
     position: relative;
     top: 0px;
@@ -109,23 +109,14 @@ button:hover {
     cursor:pointer;
     width: 200px;
 }
-.music-select button{
-    background-color: rgb(101, 168, 199);
-    font-size: 90%;
-    text-transform:none;
-    color: white;
-    padding: 5px 6px;
-    margin: 5px;
-    cursor:pointer;
-    width: 200px;
-}
-.change-bg button:hover, .music-select button:hover{
+.change-bg button:hover, .music-select button:hover, .btn-quote:hover{
     transition: 0.35s all ease-in;
     color:black;
     border: 1px solid black;
 }
 
-#settings-container{
+/* the holding containers for "sidebar" : */
+#settings-container, .spotify, .quotes{
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.24);
     position:fixed;
@@ -143,30 +134,18 @@ button:hover {
     cursor:pointer;
 }
 
-#settings-container:hover, .spotify:hover{
+#settings-container:hover, .spotify:hover, .quotes:hover{
     height: auto;
     background-color:transparent;
     width: 25%;
     padding:10px;
     transition: 0.3s all ease-out;
 }
+
 .spotify{
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.24);
     position:fixed;
     top: 90px;
     left:10px;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align:center;
-    height: 50px;
-    width: 50px;
-    z-index:1000;
-    padding: 0;
-    transition: 0.35s all ease-in;
-    cursor:pointer;
 }
  
 .spotify:hover .music,
@@ -174,6 +153,10 @@ button:hover {
 .spotify:hover .music-title,
 .spotify:hover .current-playlist{
     display:block;
+}
+
+.spotify:hover .music-icon{
+    display:none;
 }
 #settings-container:hover .change-bg {
     display:block;
@@ -195,12 +178,61 @@ button:hover {
     display:none;
     font-size: 16px;
 }
-.settings-title, .music-title{
+.settings-title, .music-title, .quotes-title{
     display:none;
     text-align:center;
     font-size: 14px;
     color:#e5a0b3;
 }
+
+
+.quotes{
+    position:fixed;
+    top: 170px;
+    left: 10px;
+}
+
+.quote{
+    display:none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quotes:hover .quotes-title,
+.quotes:hover .quote, 
+.quotes:hover .quote-button
+{
+    display:block;
+}
+
+.quotes:hover .book-icon{
+    display:none;
+}
+
+.quotes:hover {
+    height: 250px;
+    width: 20%;
+}
+
+.quote-body{
+    font-size: 18px;
+    word-spacing: 0.2rem;
+    font-style: italic;
+    font-weight: 550;
+    margin: 5px;
+    text-align: center;
+}
+.author{
+    font-size: 13px;
+    text-align: center;
+    margin: 5px;
+}
+.quote-button{
+    display:none;
+    margin: 5px;
+}
+
 
 /* ------ display for the music buttons/imbedded playlist ------*/
 .music-select{
@@ -222,6 +254,8 @@ button:hover {
     display:none;
     margin-top: 80px;
 }
+
+
 
 
 
