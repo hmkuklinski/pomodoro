@@ -330,17 +330,17 @@ let generateQuoteBtn = document.querySelector('.btn-quote');
 
 const url= "https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";
 
-async function fetchQuote(){
-  try{
-    const response= await fetch(url); 
-    //check if HTTP response code in 200s (successful)- boolean:
-    if (response.ok === false){
-      throw new Error("There was an error with the request"); //throws error if not okay
+async function fetchQuote() {
+  try {
+    const response = await fetch(url);
+    // Check if HTTP response code is in 200s (successful)
+    if (!response.ok) {
+      throw new Error("There was an error with the request");
     }
-    //parse data as JSON
-    const data= await response.json(); 
-
-    // Check if the data has quoteText and quoteAuthor
+    // Parse data as JSON
+    const data = await response.json();
+    
+    // Access the quote text and author from the data object
     if (data.quoteText && data.quoteAuthor) {
       quoteTextBox.innerHTML = `"${data.quoteText}"`;
       author.innerHTML = `- ${data.quoteAuthor}`;
@@ -348,11 +348,10 @@ async function fetchQuote(){
       quoteTextBox.innerHTML = "No quote text available.";
       author.innerHTML = "- Unknown";
     }
-  } //need to handle any errors that occur --> provide context to user
-  catch (error) {
+  } catch (error) {
     console.error('Error fetching quote:', error);
-    quoteTextBox.innerHTML = "Sorry, we are unable to complete this request."; //set quoteText to error message instead
-    author.innerHTML = ""; //clear author text
+    quoteTextBox.innerHTML = "Sorry, we are unable to complete this request.";
+    author.innerHTML = "";
   }
 }
 
