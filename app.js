@@ -211,13 +211,17 @@ bgBtn.addEventListener('click', function(){
 // MAIN FUNCTION FOR BACKGROUND IMAGE CHANGE!!! -------
 let currentIndex= -1;
 function changeBg(imageArray){
-  let newIndex = (currentIndex + 1) % imageArray.length;
+  let newIndex = (currentIndex + 1) % imageArray.length; //causes loop around if equal to imageArray.length
   
   const img = new Image();
   img.src = imageArray[newIndex]; //change img src to one in array
 
   img.onload = function () { //wait until fully loads
     document.querySelector('html').style.backgroundImage = `url(${imageArray[newIndex]})`;
+    //image formatting:
+    document.querySelector('html').style.backgroundSize = 'cover';
+    document.querySelector('html').style.backgroundRepeat = 'no-repeat';
+    document.querySelector('html').style.backgroundPosition = 'center center';  
     currentIndex = newIndex;
   };
 }
@@ -320,20 +324,90 @@ function displayKRnb(){
 }
 
 // for the random quote generator:
-let quoteText = document.querySelector('.quote-body');
+let quoteTextBox = document.querySelector('.quote-body');
 let author = document.querySelector('.author');
 let generateQuoteBtn = document.querySelector('.btn-quote');
 
-const url= "https://api.quotable.io/random";
+const url= "https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";
 
-let fetchQuote = () =>{
-  fetch(url)
-    .then(data => data.json())
-    .then((item)=>{
-      quoteText.innerHTML = "\"" + item.content + "\" ";
-      author.innerHTML = "- " + item.author;
-  });
-};
+async function fetchQuote(){
+  try{
+    const response= await fetch(url); 
+    //check if HTTP response code in 200s (successful)- boolean:
+    if (response.ok === false){
+      throw new Error("There was an error with the request"); //throws error if not okay
+    }
+    //parse data as JSON
+    const data= await response.json(); 
+
+    // Check if the data has quoteText and quoteAuthor
+    if (data.quoteText && data.quoteAuthor) {
+      quoteTextBox.innerHTML = `"${data.quoteText}"`;
+      author.innerHTML = `- ${data.quoteAuthor}`;
+    } else {
+      quoteTextBox.innerHTML = "No quote text available.";
+      author.innerHTML = "- Unknown";
+    }
+  } //need to handle any errors that occur --> provide context to user
+  catch (error) {
+    console.error('Error fetching quote:', error);
+    quoteTextBox.innerHTML = "Sorry, we are unable to complete this request."; //set quoteText to error message instead
+    author.innerHTML = ""; //clear author text
+  }
+}
 
 window.addEventListener("load", fetchQuote);
 generateQuoteBtn.addEventListener("click", fetchQuote);
+
+
+//for the uploading of personal photos ---------------------------
+let myPhotos = [];
+//grabbing each button:
+const startPhotoUploadBtn = document.querySelector('.btn-add-photo');
+const changeMyPhotoBtn= document.querySelector('.btn-my-uploads');
+const fileSubmit = document.getElementById('uploadInput');
+
+//event listeners for each button:
+startPhotoUploadBtn.addEventListener('click', startUpload);
+fileSubmit.addEventListener('change', handleUpload);
+changeMyPhotoBtn.addEventListener('click', changeUpload);
+
+//shows the input for file selection and submit photo button
+function startUpload(){
+  fileSubmit.click(); //automatically opens photo file selector on click
+}
+//changes background photo to photo from myPhotos:
+function changeUpload(){
+  if (myPhotos.length === 0) {
+    alert('You do not have any photos. Please click the add photo button to submit a photo!');
+  } else {
+    changeBg(myPhotos);
+  }
+}
+
+function handleUpload(){
+  //files property --> returns FileList containing selected files
+  const files = fileSubmit.files;
+  //check that file is selected:
+  if (files.length >0){
+    //iterate through all selected photos:
+    for (let i=0;i<files.length;i++){
+      const currentFile= files[i];
+      const reader = new FileReader(); //add a file reader
+
+      reader.readAsDataURL(currentFile);
+
+      //if file is read successfully by reader:
+      reader.onload= function(e){
+        myPhotos.push(e.target.result); //add to myPhotos array
+      }
+
+      
+    }
+    alert('Your photos have been added! Click the My Photos to set your new background image');
+  }else{
+    alert('Please select a file.');
+  }
+}
+
+
