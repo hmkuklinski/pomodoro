@@ -1,4 +1,4 @@
-#Flashcard Frenzy
+# Pomodoro
 ## Table of Contents
 1. [Description](#Description)
 2. [How to Use](#Usage)
