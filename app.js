@@ -328,7 +328,7 @@ let quoteTextBox = document.querySelector('.quote-body');
 let author = document.querySelector('.author');
 let generateQuoteBtn = document.querySelector('.btn-quote');
 
-const url= "https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";
+const url= "https://quotes.domiadi.com/api";
 
 async function fetchQuote() {
   try {
@@ -339,11 +339,12 @@ async function fetchQuote() {
     }
     // Parse data as JSON
     const data = await response.json();
+    console.log(data);
     
     // Access the quote text and author from the data object
-    if (data.quoteText && data.quoteAuthor) {
-      quoteTextBox.innerHTML = `"${data.quoteText}"`;
-      author.innerHTML = `- ${data.quoteAuthor}`;
+    if (data.quote && data.from) {
+      quoteTextBox.innerHTML = `"${data.quote}"`;
+      author.innerHTML = `- ${data.from}`;
     } else {
       quoteTextBox.innerHTML = "No quote text available.";
       author.innerHTML = "- Unknown";

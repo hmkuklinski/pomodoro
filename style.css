@@ -69,7 +69,9 @@ button:hover {
     color: #000000;
     transition: 0.3s ease-in;
 }
-
+.btn-pomodoro, .btn-short-break, .btn-long-break, .btn-pause, .btn-restart, .btn-start, .btn-add{
+   cursor:pointer; 
+}
 .btn-pomodoro{
     background-color: #e5a0b3;
 }
@@ -118,7 +120,7 @@ button:hover {
 /* the holding containers for "sidebar" : */
 #settings-container, .spotify, .quotes{
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(48, 48, 48, 0.24);
     position:fixed;
     top: 10px;
     left: 10px;
@@ -295,11 +297,13 @@ button:hover {
     }
     
     
+    
 }
 
 /* ------ FOR ADDING TO THE TO DO LIST ------*/
 .task-input{
     padding: 10px;
+    
 }
 
 #task-input-box{ /* where user enters text */
@@ -308,6 +312,9 @@ button:hover {
     font-size: 25px;
     background-color:rgb(196, 195, 195);
     color:black;
+    border-radius: 12px;
+    padding: 4px;
+    text-align:center;
 }
 
 .btn-add{ /* for adding task*/
